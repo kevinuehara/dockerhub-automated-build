@@ -1,4 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+echo "################# $TRAVIS_PULL_REQUEST"
 
 if [ $TRAVIS_PULL_REQUEST == false ] ; then
   version="latest"
@@ -11,8 +13,8 @@ if [ $TRAVIS_PULL_REQUEST == false ] ; then
   tag=${TRAVIS_REPO_SLUG}:${DOCKER_TAG}
 
   echo "########################## $tag"
-  echo "########################## $TRAVIS_REPO_SLUG:${DOCKER_TAG}"
+  echo "########################## $TRAVIS_REPO_SLUG:${}"
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   docker tag ${TRAVIS_REPO_SLUG} ${tag}
-  docker push kevinuehara/dockerhub-automated-build
+  docker push $tag
 fi
