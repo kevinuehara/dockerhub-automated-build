@@ -1,0 +1,9 @@
+language: python
+services:
+  - docker
+python:
+  - '3.6'
+script:
+  - 'docker build -t dojot/device-manager .'
+after_success:
+  - travis/deploy-gh-pages.sh
