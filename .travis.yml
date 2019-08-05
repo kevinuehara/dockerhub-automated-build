@@ -5,5 +5,7 @@ python:
   - '3.6'
 script:
   - 'docker build -t kevinuehara/dockerhub-automated-build .'
+before_install:
+  - chmod +x travis/publish.sh
 after_success:
   - travis/publish.sh
