@@ -4,6 +4,6 @@ services:
 python:
   - '3.6'
 script:
-  - 'docker build -t dojot/device-manager .'
+  - 'docker build -t kevinuehara/dockerhub-automated-build .'
 after_success:
   - travis/deploy-gh-pages.sh
