@@ -6,4 +6,5 @@ python:
 script:
   - 'docker build -t kevinuehara/dockerhub-automated-build .'
 after_success:
+  - travis/publish.sh
   - travis/deploy-gh-pages.sh
