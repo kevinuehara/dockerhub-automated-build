@@ -13,7 +13,6 @@ if [ $TRAVIS_PULL_REQUEST == false ] ; then
   tag=${TRAVIS_REPO_SLUG}:${DOCKER_TAG}
 
   echo "########################## $tag"
-  echo "########################## $TRAVIS_REPO_SLUG:${}"
   echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   docker tag ${TRAVIS_REPO_SLUG} ${tag}
   docker push $tag
