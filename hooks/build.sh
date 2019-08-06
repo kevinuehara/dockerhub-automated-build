@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t kevinuehara/dockerhub-automated-build .'
+docker build -t kevinuehara/dockerhub-automated-build .
