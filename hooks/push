@@ -2,11 +2,13 @@
 
 echo "################# $SOURCE_BRANCH"
 
+version="latest"
+
 if [ $SOURCE_BRANCH != "master" ] ; then
     version=$SOURCE_BRANCH
 fi
 
 DOCKER_TAG=$(echo ${version} | sed 's/\(.*\)\/\(.*\)/\1_\2/')
-tag=${TRAVIS_REPO_SLUG}:${DOCKER_TAG}
+tag=${DOCKER_REPO}:${DOCKER_TAG}
 echo "########################## $tag"
 docker push $tag
