@@ -3,5 +3,7 @@ services:
   - docker
 python:
   - '3.6'
+before_install:
+  - chmod +x hooks/build.sh
 script:
   - './hooks/build.sh'
