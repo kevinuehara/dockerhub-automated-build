@@ -1,14 +1,14 @@
 #!/bin/bash
 
-echo "################# $SOURCE_BRANCH"
+set -ex
 
-version="latest"
-
-if [ $SOURCE_BRANCH != "master" ] ; then
-    version=$SOURCE_BRANCH
+# Don't push images if branch is not master
+echo "Current Branch: $SOURCE_BRANCH"
+if [ "${SOURCE_BRANCH}" != "master" ]; then
+    exit 0
 fi
 
-DOCKER_TAG=$(echo ${version} | sed 's/\(.*\)\/\(.*\)/\1_\2/')
-tag=${DOCKER_REPO}:${DOCKER_TAG}
-echo "########################## $tag"
-docker push $tag
+for tag in $(sudo docker images kevinuehara/dockerhub-automated-build --format "{{.Tag}}");
+do
+    docker push "kevinuehara/dockerhub-automated-build:${tag}"
+done
