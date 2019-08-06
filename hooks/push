@@ -2,6 +2,8 @@
 
 echo "################# $SOURCE_BRANCH"
 
+version="latest"
+
 if [ $SOURCE_BRANCH != "master" ] ; then
     version=$SOURCE_BRANCH
 fi
