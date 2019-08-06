@@ -3,8 +3,9 @@ services:
   - docker
 python:
   - '3.6'
-
 before_install:
-  - chmod +x hooks/build.sh
+  - chmod +x travis/publish.sh
 script:
-  - './hooks/build.sh'
+  - 'docker build -t kevinuehara/dockerhub-automated-build .'
+after_success:
+  - travis/publish.sh
