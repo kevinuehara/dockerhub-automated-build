@@ -3,11 +3,8 @@ services:
   - docker
 python:
   - '3.6'
-install:
-  - git clone https://github.com/docker-library/official-images.git ~/official-images
+
 before_install:
   - chmod +x hooks/build.sh
 script:
   - './hooks/build.sh'
-after_script:
-  - docker images
