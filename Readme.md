@@ -1,3 +1,3 @@
 # DeviceManager
 
-teste de build com sucesso :)
+Testando build com variaveis ambiente
